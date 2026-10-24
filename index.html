@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prompt2Patch – Projector Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="fit">
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <filter id="sharpen" color-interpolation-filters="sRGB">
+      <feConvolveMatrix order="3" kernelMatrix="0 -.2 0 -.2 1.8 -.2 0 -.2 0" edgeMode="duplicate" />
+    </filter>
+  </svg>
+  <div id="stage">
+    <img id="poster" src="assets/poster.jpg" alt="Prompt2Patch – AI Assisted Debugging Challenge">
+    <section id="timer">
+      <canvas id="bits"></canvas>
+      <div id="label">Ready</div>
+      <div id="clock">02:15:00</div>
+      <div class="bar"><i id="fill"></i></div>
+      <div id="ticker"></div>
+    </section>
+  </div>
+  <canvas id="confetti"></canvas>
+
+  <button id="gear" class="hidden" title="Show controls (H)">⚙</button>
+  <div id="ctrl">
+    <div class="row top"><b>Controls</b><button id="hide" title="Hide controls (H)">✕ Hide</button></div>
+    <div class="row">
+      <button class="primary" id="start">▶ Start</button>
+      <button id="reset">↺ Reset</button>
+      <button id="m1">−1 min</button>
+      <button id="p1">+1 min</button>
+      <span class="sep"></span>
+      <label>H <input type="number" id="h" min="0" max="23" value="2"></label>
+      <label>M <input type="number" id="m" min="0" max="59" value="15"></label>
+      <label>S <input type="number" id="s" min="0" max="59" value="0"></label>
+      <button id="set">Set time</button>
+    </div>
+    <div class="row presets">
+      <button data-m="15">15m</button><button data-m="30">30m</button><button data-m="45">45m</button>
+      <button data-m="60">1h</button><button data-m="90">1.5h</button><button data-m="135">2h15</button>
+    </div>
+    <div class="row">
+      <button id="music">♪ Music: Off</button>
+      <button id="moodBtn">Mood: Groove</button>
+      <button id="mute">🔊</button>
+      <input type="range" id="vol" min="0" max="100" value="50" aria-label="Volume">
+      <span id="now"></span>
+      <button id="test">🔔 Test end sound</button>
+    </div>
+    <div class="row">
+      <button id="fs">⛶ Fullscreen</button>
+      <button id="mode">Image: Fit</button>
+      <label id="focusWrap">Focus <input type="range" id="focus" min="0" max="100" value="30"></label>
+      <button id="party">🎉 Test confetti</button>
+    </div>
+    <div class="hint">Space start/pause · R reset · P music · N mood · M mute · ↑↓ volume · F fullscreen · I image mode
+      · H or right-click hide/show panel</div>
+  </div>
+  <script src="music.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
